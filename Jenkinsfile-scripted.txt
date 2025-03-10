@@ -1,18 +1,16 @@
 node('built-in') {
-    // some block
-    stage('continuous dowload') {
-    // some block
-    echo "dowloading codes from github in progress"
-    git branch: 'main', url: 'https://github.com/chamberlain96/registration-app.git'
-}
-    stage('continuous build') {
-    // some block
-    echo " building in progress"
-    sh 'mvn clean install '
-}
-    stage('continuous deployment') {
-    // some block
-    echo "deployin applicatio"
-    deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.86.63.197:8080/')], contextPath: 'travisapp', war: '**/*.war'
-}
+    stage('Continuous Download') {
+        echo "Downloading code from GitHub..."
+        git branch: 'main', url: 'https://github.com/nedezeh/Ben-Branch.git'
+    }
+    
+    stage('Continuous Build') {
+        echo "Building in progress..."
+        sh 'mvn clean install'
+    }
+    
+    stage('Continuous Deployment') {
+        echo "Deploying application..."
+        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.86.63.197:8080/')], contextPath: 'travisapp', war: '**/*.war'
+    }
 }
