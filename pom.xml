@@ -6,9 +6,14 @@
 
     <groupId>com.example.maven-project</groupId>
     <artifactId>maven-project</artifactId>
-    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>Maven Project</name>
+
+    <modules>
+        <module>server</module>
+        <module>webapp</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,37 +21,6 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
-
-    <modules>
-        <module>server</module>
-        <module>webapp</module>
-    </modules>
-
-    <reporting>
-        <plugins>
-            <plugin><artifactId>maven-checkstyle-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-jxr-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-javadoc-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-pmd-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-surefire-report-plugin</artifactId></plugin>
-            <plugin><groupId>org.codehaus.mojo</groupId><artifactId>findbugs-maven-plugin</artifactId></plugin>
-            <plugin><groupId>org.codehaus.mojo</groupId><artifactId>taglist-maven-plugin</artifactId></plugin>
-        </plugins>
-    </reporting>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <dependencyManagement>
         <dependencies>
@@ -65,4 +39,19 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
